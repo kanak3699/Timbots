@@ -32,7 +32,12 @@ public class Plant {
     public int getCounter() {
         return count;
     }
-
+    public int getGrowth(){
+        return plantGrowth;
+    }
+    public int getJolts() {
+        return plantJolts;
+    }
     public void setX_coord(int X_coord){
         this.X_coord = X_coord;
     }

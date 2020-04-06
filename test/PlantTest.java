@@ -5,6 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class PlantTest {
 
     @Test
+    void setVal() {
+        Plant p1 = new Plant();
+        p1.setVal(1,10);
+        assertEquals(1, p1.getJolts(), "The value of jolts is " + p1.getJolts());
+        assertEquals(10, p1.getGrowth(), "The value of jolts is " + p1.getGrowth());
+    }
+
+    @Test
     void isNotHarvested() {
         Plant p1 = new Plant();
         p1.isNotHarvested();
