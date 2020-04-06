@@ -1,0 +1,38 @@
+List of Refactorings
+====================
+
+Refactorings:
+=============
+
+1. File: SpressoBot.java, ChickenBot.jaba, AngryBot.java, TimBot.java
+   Location (method/approx. line #): getNextMove()
+   Issue Idetified: Common code to check if move will result in energy use and decrement energyLevel
+                    if that is the case.
+   Description of fix:  Push the common code into TimBot.java, creating a protected method to be used instead.
+   Implemented: Yes (Completely, all tests pass)
+
+
+2. File: ChickenBot.java, Angrybot.java
+   Location (method/approx. line #): getNextMove(), Line 54 in AngryBot.java, and Line 55 in ChickenBot.java
+   Issue Idetified: Magic Numbers i.e. 2000 found in the getNextMove method.
+   Description of fix: Magic Number 2000 is changed to constant EMPTY_DISTRICT_PENALTY and it can be
+                       found in TimBot.java file
+   Implemented: Yes (Completely, all tests pass)
+
+
+3. File: District.java
+   Location (method/approx. line #): setTimBot(), newRound(), doSensePhase(), doMovePhase(), doFirePhase(),
+                                    doDefensePhase(), doHarvestPhase(), toString()
+   Issue Idetified: Violation of single responsibility.
+   Description of fix: Move the methods that do not support class responsibility.
+   Implemented: No
+
+
+4. File:  ChickenBot.java, AngryBot.java, SpressoBot.java
+   Location (method/approx. line #): getNextMove()
+   Issue Idetified: Common code to calculate the minimum scores.
+   Description of fix: Push the common code to TimBot.java, creating a protected method to be used instead.
+   Implemented: No
+
+
+

@@ -49,9 +49,9 @@ public class AngryBot extends SpressoBot {
       // Compute scores for each of the districts, the lower scores are better
       // score = spressoCount + 2000 * (if district is empty)
       for( int i = 0; i < scores.length; i++ ) {
-        scores[i] = spressoSensed[i];
+        scores[i] = plantSensed[i];
         if( !botsSensed[i] ) {
-          scores[i] += 2000;
+          scores[i] += EMPTY_DISTRICT_PENALTY;
         }
       }
 
@@ -64,10 +64,7 @@ public class AngryBot extends SpressoBot {
         }
       }
 
-      // If move is not to stay here, decrement energy level.
-      if( move != District.CURRENT ) {
-        energyLevel--;
-      }
+     useMoveEnergy(move);
     } else {
       // Else, if we do not have enough energy to attack, behave like spressobot
       move = super.getNextMove();

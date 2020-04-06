@@ -16,8 +16,10 @@ public class TimBot {
   private int myId;                                  // TimBot's ID
   protected int energyLevel;                         // TimBot's energy level
   protected char personality = 'N';                  // TimBot's personality
-  protected int [] spressoSensed = new int[5];       // last spresso sensor read
+//  protected int [] spressoSensed = new int[5];       // last spresso sensor read
   protected boolean [] botsSensed = new boolean[5];  // last adj bot sensor read
+  protected static final int EMPTY_DISTRICT_PENALTY = 2000; // Magic Number
+  protected int [] plantSensed = new int[5];       // last plant sensor read
 
   /** 
      This is the only constructor for this class.  This constructor 
@@ -81,8 +83,9 @@ public class TimBot {
              bots   : a 5 element array of booleans indicating whether
                       TimBots are present in corresponding districts.
    */
-  public void senseDistricts( int [] spresso, boolean [] bots ) {
-    System.arraycopy( spresso, 0, spressoSensed, 0, spresso.length );
+
+  public void senseDistricts( int [] plant, boolean [] bots ) {
+    System.arraycopy( plant, 0, plantSensed, 0, plant.length );  // Spresso changed to plant
     System.arraycopy( bots, 0, botsSensed, 0, bots.length );
   }
 
@@ -103,6 +106,11 @@ public class TimBot {
     return District.CURRENT;
   }
 
+  protected void useMoveEnergy(int move) {
+    if( move != District.CURRENT ) {
+      energyLevel--;
+    }
+  }
 
   /** 
      This method returns true if the TmBot is functional.  I.e., it's
@@ -150,15 +158,23 @@ public class TimBot {
      it's energy reserves by jolts Jolts.  The energy level cannot
      exceed 99 Jolts.
    */
-  public void harvestSpresso( int jolts ) {
+//  public void harvestSpresso( int jolts ) {
+//    // add harvest jolts to energy level and ensure it does not exceed 99
+//    energyLevel += jolts;
+//    if( energyLevel > 99 ) {
+//      energyLevel = 99;
+//    }
+//  }
+
+  public void harvestPlant ( int jolts){
     // add harvest jolts to energy level and ensure it does not exceed 99
-    energyLevel += jolts;
-    if( energyLevel > 99 ) {
+     energyLevel += jolts;
+      if( energyLevel > 99 ) {
       energyLevel = 99;
     }
   }
 
-   
+
   /** 
      This method is called during the Fire Cannon phase.  The TimBot
      creates an array of integers, each representing where it wishes

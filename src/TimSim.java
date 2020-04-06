@@ -37,6 +37,7 @@ public class TimSim {
     int growth = stdin.nextInt();
     int rounds = stdin.nextInt();
     int numBots = stdin.nextInt();
+    int numPlant = stdin.nextInt();      // Number of plant config
 
     // Instantiate planet and array of timbots
     DohNat planet = new DohNat( rows, columns, jolts, growth );
@@ -76,7 +77,28 @@ public class TimSim {
       }
     }
 
-    // Loop for a specified number of rounds
+    Plant [] plants = new Plant[numPlant];
+    // Load plant configurations
+    for( int i = 0; i < numPlant; i++ ) {
+      // Read in one plant config
+      String plantName = stdin.next();               // type of plant
+      int x = stdin.nextInt();                       //x coordinates
+      int y = stdin.nextInt();                       //y coordinates
+      int energy = stdin.nextInt();                  //Energy gained
+      int roundForGrowth = stdin.nextInt();           //rounds required for completion of growth
+
+      // Insantiate the corresponding bot object.
+      switch( plantName ) {
+        case "spresso":
+          plants[i] = new SpressoPlant( 0, energy, roundForGrowth );
+          break;
+        case "mericano":
+          plants[i] = new MericanoPlant( roundForGrowth, energy, roundForGrowth );
+        break;
+      }
+    }
+
+      // Loop for a specified number of rounds
     for( int i = 0; i < rounds; i++ ) {
       // Perform the phases of a round
       planet.newRound();

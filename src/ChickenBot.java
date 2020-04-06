@@ -50,9 +50,9 @@ public class ChickenBot extends TimBot {
     if( energyLevel > 0 ) {
       // Loop through all possibilities and compute the scores.
       for( int i = 0; i < scores.length; i++ ) {
-        scores[i] = spressoSensed[i];
+        scores[i] = plantSensed[i];
         if( ( i != District.CURRENT ) && botsSensed[i] ) {
-          scores[i] += 2000;
+          scores[i] += EMPTY_DISTRICT_PENALTY;
           adj = 1000;
         }
       }
@@ -69,9 +69,7 @@ public class ChickenBot extends TimBot {
       }
 
       // Decrement energy level if we are moving.
-      if( move != District.CURRENT ) {
-        energyLevel--;
-      }
+      useMoveEnergy(move);
     }
     return move;
   }

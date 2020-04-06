@@ -57,7 +57,7 @@ class TimBotTest {
         t.senseDistricts(spressoSensed, botsSensed);
         assertTrue(Arrays.equals(botsSensed, t.botsSensed),
                 "botSensed not copied properly");
-        assertTrue(Arrays.equals(spressoSensed, t.spressoSensed),
+        assertTrue(Arrays.equals(spressoSensed, t.plantSensed),
                 "spressoSensed not copied properly");
     }
 
@@ -155,7 +155,7 @@ class TimBotTest {
         t.senseDistricts(spressoSensed, botsSensed);
         t.getNextMove();
         t.fireCannon();
-        t.harvestSpresso(1);
+        t.harvestPlant(1);
         assertEquals(1, t.energyLevel, "Energy level not properly updated");
     }
 
@@ -169,7 +169,7 @@ class TimBotTest {
         t.senseDistricts(spressoSensed, botsSensed);
         t.getNextMove();
         t.fireCannon();
-        t.harvestSpresso(100);
+        t.harvestPlant(100);
         assertEquals(99, t.energyLevel, "Energy level is not truncated");
     }
 

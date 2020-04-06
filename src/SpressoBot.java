@@ -50,7 +50,7 @@ public class SpressoBot extends TimBot {
     if( energyLevel > 0 ) {
       // Compute scores for each possible move
       for( int i = 0; i < scores.length; i++ ) {
-        scores[i] = spressoSensed[i] * 4;
+        scores[i] = plantSensed[i] * 4;
         if( ( i != District.CURRENT ) && botsSensed[i] ) {
           scores[i] += 2;
           adj = 1;
@@ -69,9 +69,7 @@ public class SpressoBot extends TimBot {
       }
 
       // If the move is to anothr district, decrement energy level.
-      if( move != District.CURRENT ) {
-        energyLevel--;
-      }
+      useMoveEnergy(move);
     }
     return move;
   }
