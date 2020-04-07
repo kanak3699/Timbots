@@ -76,10 +76,11 @@ public class TimSim {
         System.err.println( bots[i] + " added" );
       }
     }
-    // Intantiate plants array of Plant with numPlant parameter.
-    Plant [] plants = new Plant[numPlant];
 
-    // Load plant configurations
+    // Instantiate plants array of the Plant class with numPlant.
+     Plant [] plants = new Plant[numPlant];
+
+    // Load the plant configurations
     for( int i = 0; i < numPlant; i++ ) {
       // Read in one plant config
       String plantName = stdin.next();               // Type of Plant e.g. Spresso, Mericano

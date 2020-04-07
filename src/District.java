@@ -15,7 +15,7 @@
  Sense phase.
  */
 public class District {
-  // Thse are the district ID used to index into the spresso and bots
+  // These are the district ID used to index into the spresso and bots
   // arrays passed to the senseDistrict method and also used to specify
   // where the TimBot wishes to fire the ion cannon.
   public static final int CURRENT = 0;
@@ -31,12 +31,6 @@ public class District {
   private int numInvaders = 0;                   // # of invaders at Move phase
   private int incomingFire = 0;                  // # of shots fired at district
   private DohNat myPlanet;                       // ref to district's planet
-
-/*Done
-  private int spressoCount = 0;                  // current spresso count
-  private int spressoJolts = 0;                  // # of jolts at harvest
-  private int spressoGrowth = 0;                 // # of rounds between harvests
-*/
 
   Plant spresso = new SpressoPlant(0, 0, 0);        //count, jolts, growths
 
@@ -116,19 +110,12 @@ public class District {
    a sensor reading of the adjacent district
 
    parameter: direction (NORTH, EAST, SOUTH, WEST, or CURRENT
-   spresso : array of spresso counts for each adj district
+   spresso : array of plant counts for each adj district
    bots : boolean array indicating bot presence in adj districts
    */
-  /*private void senseDistrict( int direction, int [] spresso,
-                              boolean [] bots ) {
-    // Get adjacent district, and query it for spresso count and timbot presence
-    District d = getAdjoiningDistrict( direction );
-    spresso[direction] = d.hasSpresso();
-    bots[direction] = d.hasTimBot();
-  }*/
 
   private void senseDistrict( int direction, int [] plant, boolean [] bots ) {
-    // Get adjacent district, and query it for spresso count and timbot presence
+    // Get adjacent district, and query it for plants count and timbot presence
     District d = getAdjoiningDistrict( direction );
     plant[direction] = d.hasplant();
     bots[direction] = d.hasTimBot();
@@ -154,23 +141,6 @@ public class District {
    This method performs the Sense phase for the TimBot in the district.
    This method need not do anything if no functional TimBot is present.
    */
-/*  public void doSensePhase() {
-    // If district is not empty and timbot is functional, sense adj districts
-    if( ( resident != null ) && resident.isFunctional() ) {
-      // Create sensor arrays
-      int [] spresso = new int[5];
-      boolean [] bots = new boolean[5];
-      // perform sensing for each district
-      senseDistrict( CURRENT, spresso, bots );
-      senseDistrict( NORTH, spresso, bots );
-      senseDistrict( EAST, spresso, bots );
-      senseDistrict( SOUTH, spresso, bots );
-      senseDistrict( WEST, spresso, bots );
-      // inform timbot of sensor readings.
-      resident.senseDistricts( spresso, bots );
-    }
-  }*/
-
 
   public void doSensePhase() {
     // If district is not empty and timbot is functional, sense adj districts
@@ -193,7 +163,7 @@ public class District {
 
 
   /**
-   This method returs true if there is a TimBot in the District and
+   This method returns true if there is a TimBot in the District and
    false otherwise.
 
    return: true if TimBot is present
@@ -204,14 +174,12 @@ public class District {
 
 
   /**
-   This method returns true if there spresso plants ready for harvest
-   and false otherwise.
+   This method returns mericano.count if spresso.count is greater
+   than mericano.count
 
-   return: number of rounds before spresso is ready.
+   return: mericano.count if true else returns spresso.count
    */
-  /*public int hasSpresso() {
-    return spresso.count;
-  }*/
+
 
   public int hasplant(){
     if(mericano.count<spresso.count){
@@ -365,21 +333,6 @@ public class District {
    the TimBot harvests the spresso and the counter is reset to count down.
    Otherwise, nothing is done.
    */
- /* public void doHarvestPhase() {
-    // If spresso is ready to be harvested, check if harvest is to be done
-    if( spresso.count == 0 ) {
-      // If district is not empty and timbot is functional, perform harvest
-      if( ( resident != null ) && resident.isFunctional() ) {
-        // give harvest to bot and reset spresso counter
-        resident.harvestSpresso( spresso.plantjolts );
-        spresso.count = spresso.plantgrowth;
-      }
-    } else {
-      // else decrement the amount of time until harvest time.
-      spresso.count--;
-    }
-  }
-*/
 
   public void doHarvestPhase() {
     // If spresso is ready to be harvested, check if harvest is to be done
@@ -397,10 +350,10 @@ public class District {
     }
     if (mericano.count == 0) {
       // If district is not empty and timbot is functional, perform harvest
-      if( ( resident != null ) && resident.isFunctional() && mericano.isNotHarvested()) {           //if mericano isn't harvested anytime yet
+      if( ( resident != null ) && resident.isFunctional() && mericano.isNotHarvested()) {        //if mericano isn't harvested anytime yet
         // give harvest to bot and reset mericano counter
         resident.harvestPlant( mericano.plantJolts);
-        mericano.resetCount();      // khali method call karvani re if there are more plants to be added
+        mericano.resetCount();      // This is called if there are more plants to be added.
         mericano.setHarvested();
       }
     }
@@ -426,13 +379,6 @@ public class District {
    Shows a district with TimBot with personality N, ID 42, energy level 7,
    and there are three rounds left till the spresso is ready for harvest.
    */
-/*  public String toString() {
-    if( ( resident != null ) && resident.isFunctional() ) {
-      return String.format( "|%s %2d|", resident.toString(), spresso.count );
-    } else {
-      return String.format( "|          %2d|", spresso.count );
-    }
-  }*/
 
   public String toString() {
     if( ( resident != null ) && resident.isFunctional() ) {
@@ -441,7 +387,6 @@ public class District {
       return String.format( "|          %2d|", spresso.count );
     }
   }
-
 
 
 }
