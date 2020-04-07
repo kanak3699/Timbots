@@ -47,6 +47,7 @@ class PlantTest {
     /* Common case: Check if count data is being stored and if the reset counter works perfectly.
      * White-box:  We are checking before and after the resetCount() method is called
      *             and check if it works and set the counter back to 0 or not.
+     * Comment - To check this first check the "Before the counter is reset" output and then check "After the counter is reset"
      */
     @Test
     void resetCount() {
