@@ -31,19 +31,19 @@ public class TimSim {
     boolean debug = ( args.length > 0 ) && args[0].equals( "debug" );
 
     // load configuration of simulation
-    int rows = stdin.nextInt();
-    int columns = stdin.nextInt();
-    int jolts = stdin.nextInt();
-    int growth = stdin.nextInt();
-    int rounds = stdin.nextInt();
-    int numBots = stdin.nextInt();
-    int numPlant = stdin.nextInt();      // Number of plant config
+    int rows = stdin.nextInt();             // Number of Rows
+    int columns = stdin.nextInt();          // Number of Columns
+    int jolts = stdin.nextInt();            // Number of Jolts
+    int growth = stdin.nextInt();           // Number of Growth
+    int rounds = stdin.nextInt();           // Number of Rounds
+    int numBots = stdin.nextInt();          // Number of Bots
+    int numPlant = stdin.nextInt();         // Number of Plant Configuration
 
-    // Instantiate planet and array of timbots
+    // Instantiate planet and array of Timbots with rows, columns, jolts and growth parameters
     DohNat planet = new DohNat( rows, columns, jolts, growth );
     TimBot [] bots = new TimBot[numBots];
     
-    // Load timbot configurations
+    // Loading the Timbot configurations
     for( int i = 0; i < numBots; i++ ) {
       // Read in one timbot config
       String personality = stdin.next();
@@ -76,18 +76,19 @@ public class TimSim {
         System.err.println( bots[i] + " added" );
       }
     }
-
+    // Intantiate plants array of Plant with numPlant parameter.
     Plant [] plants = new Plant[numPlant];
+
     // Load plant configurations
     for( int i = 0; i < numPlant; i++ ) {
       // Read in one plant config
-      String plantName = stdin.next();               // type of plant
-      int x = stdin.nextInt();                       //x coordinates
-      int y = stdin.nextInt();                       //y coordinates
-      int energy = stdin.nextInt();                  //Energy gained
-      int roundForGrowth = stdin.nextInt();           //rounds required for completion of growth
+      String plantName = stdin.next();               // Type of Plant e.g. Spresso, Mericano
+      int x = stdin.nextInt();                       // X - coordinates
+      int y = stdin.nextInt();                       // Y - coordinates
+      int energy = stdin.nextInt();                  // Energy gained
+      int roundForGrowth = stdin.nextInt();          // Rounds required for Completion of Growth
 
-      // Insantiate the corresponding bot object.
+      // Insantiate the corresponding plant object.
       switch( plantName ) {
         case "spresso":
           plants[i] = new SpressoPlant( 0, energy, roundForGrowth );

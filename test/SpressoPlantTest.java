@@ -15,7 +15,7 @@ class SpressoPlantTest {
     void setPlantGrowth() {
         SpressoPlant sp = new SpressoPlant();
         sp.setPlantGrowth(20);
-        assertEquals(20,sp.getGrowth(), "The growth value is" + sp.getGrowth());
+        assertEquals(20,sp.getPlantGrowth(), "The growth value is" + sp.getPlantGrowth());
     }
 
     @Test

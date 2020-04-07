@@ -13,13 +13,12 @@
    behaviours on the planet DohNat.  
 */
 public class TimBot { 
-  private int myId;                                  // TimBot's ID
-  protected int energyLevel;                         // TimBot's energy level
-  protected char personality = 'N';                  // TimBot's personality
-//  protected int [] spressoSensed = new int[5];       // last spresso sensor read
-  protected boolean [] botsSensed = new boolean[5];  // last adj bot sensor read
+  private int myId;                                         // TimBot's ID
+  protected int energyLevel;                                // TimBot's energy level
+  protected char personality = 'N';                         // TimBot's personality
+  protected boolean [] botsSensed = new boolean[5];         // last adj bot sensor read
   protected static final int EMPTY_DISTRICT_PENALTY = 2000; // Magic Number
-  protected int [] plantSensed = new int[5];       // last plant sensor read
+  protected int [] plantSensed = new int[5];                // last plant sensor read
 
   /** 
      This is the only constructor for this class.  This constructor 
@@ -154,17 +153,10 @@ public class TimBot {
 
   /** 
      This method is called during the Harvest phase if there are
-     spresso plants to harvest.  This allows the TimBot to increase
+     plants to harvest.  This allows the TimBot to increase
      it's energy reserves by jolts Jolts.  The energy level cannot
      exceed 99 Jolts.
    */
-//  public void harvestSpresso( int jolts ) {
-//    // add harvest jolts to energy level and ensure it does not exceed 99
-//    energyLevel += jolts;
-//    if( energyLevel > 99 ) {
-//      energyLevel = 99;
-//    }
-//  }
 
   public void harvestPlant ( int jolts){
     // add harvest jolts to energy level and ensure it does not exceed 99

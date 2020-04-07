@@ -14,15 +14,15 @@ class MericanoPlantTest {
     @Test
     void setPlantGrowth() {
         MericanoPlant mp = new MericanoPlant();
-        mp.setPlantGrowth(20);
-        assertEquals(20,mp.getGrowth(), "The growth value is" + mp.getGrowth());
+        mp.setPlantGrowth(10);
+        assertEquals(10,mp.getPlantGrowth(), "The growth value is" + mp.getPlantGrowth());
     }
 
     @Test
     void setPlantJolts() {
         MericanoPlant mp = new MericanoPlant();
-        mp.setPlantJolts(2);
-        assertEquals(2, mp.getPlantJolts(), "The plant jolts is" + mp.getPlantJolts());
+        mp.setPlantJolts(3);
+        assertEquals(3, mp.getPlantJolts(), "The plant jolts is" + mp.getPlantJolts());
     }
 
 }
