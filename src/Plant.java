@@ -16,7 +16,7 @@ public class Plant {
 
     protected String name;                  // String denoting name of the plant.
     protected int count = 0;                // Plant's Count.
-    protected int X_coord = 0;              // The x - Coordinates of the district containing the plant.
+    protected int X_coord = 0;              // The x - Coordinates
     protected int Y_coord = 0;              // The y - Coordinates of the district containing the plant.
     protected int plantJolts = 0;           // Number of jolts the plant harvest yields.
     protected int plantGrowth = 0;          // Number of rounds needed for plant to grow.
