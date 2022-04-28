@@ -17,7 +17,7 @@ A TimBot can move from one district to another, harvest Spresso, fire its ion ca
 its competitors, and defend itself with a force-shield. Each of actions costs the TimBot one
 Jolt of energy. If a TimBot runs out of energy, it becomes nonfunctional.
 
-# Design
+# Code Structure Design
 
 ![alt text](https://github.com/kanak3699/Timbots/blob/master/docs/Design_Structure.png?raw=true)
 
