@@ -65,7 +65,9 @@ them according to the following criteria (in order of preference):
 It will then move to the most preferred district. The ChickenBot will never fire its ion
 cannon, preferring to conserve energy.
 
-SpressoBot : The SpressoBot will always follow the Spresso plants. It will try to move to a
+## SpressoBot
+
+The SpressoBot will always follow the Spresso plants. It will try to move to a
 district where it can harvest the Spresso plants as quickly as possible. That is, during
 the Move Phase, if the SpressoBot has one or more Jolts of energy, it will consider all
 five districts (CURRENT, NORTH, EAST, SOUTH, and WEST), and will order them
@@ -77,7 +79,9 @@ according to the following criteria (in order of preference):
 It will then move to the most preferred district. The SpressoBot will never fire its ion
 cannon, preferring to conserve energy.
 
-AngryBot : The AngryBot will attack other TimBots. It will try to move to a district
+## AngryBot
+
+The AngryBot will attack other TimBots. It will try to move to a district
 where it can attack another TimBot and, where there are Spresso plants ready for
 harvest (preferably). That is, during the Move Phase, if the AngryBot has three or
 more Jolts of energy, it will consider all five districts (CURRENT, NORTH, EAST,
@@ -89,17 +93,22 @@ of preference):
 It will then move to the most preferred district.
 If the AngryBot had less than three Jolts of energy, it behaves like a SpressoBot. An
 AngryBot is a subclass of SpressoBot.)
-BullyBot : A BullyBot is a gun-happy ChickenBot. (A BullyBot is a subclass of Chick-
+
+## BullyBot
+
+A BullyBot is a gun-happy ChickenBot. (A BullyBot is a subclass of Chick-
 enBot.) During the Fire Phase, the BullyBot will shoot its cannon once into every
 adjoining district that has a TimBot in it, in the order NORTH, EAST, SOUTH,
 WEST, as long as long as it has three or more Jolts of energy. I.e., if its energy level
 drops to 2, it stops shooting. Otherwise, it behaves like a ChickenBot.
 
 # The Simulation
+
 The simulator reads in the simulation configuration and then instantiates and runs the
 the simulation, printing out the state of the simulation after each round. The simulation
 continues until the required number of rounds have transpired.
-Input
+
+## Input
 The input format to the simulator is as follows: The input comprises six integers, follow by
 one or more TimBot configurations. The first six integers are:
 R : number of rows in the grid representing planet DohNat
