@@ -17,7 +17,7 @@ A TimBot can move from one district to another, harvest Spresso, fire its ion ca
 its competitors, and defend itself with a force-shield. Each of actions costs the TimBot one
 Jolt of energy. If a TimBot runs out of energy, it becomes nonfunctional.
 
-#Rules of the Simulation
+# Rules of the Simulation
 The simulation takes place on an m × n torus grid, where the left edge is adjacent to the
 right edge, and the top edge is adjacent to bottom edge. I.e., it is impossible to fall off the
 grid—moving across one edge of the grid moves the TimBot to the other side of the grid.
@@ -50,7 +50,7 @@ all combatants become nonfunctional.
 are harvested, it takes a number of rounds to grow the Spresso plants.
 If a TimBot’s level drops below 0, they become nonfunctional.
 
-#Types of TimBots
+# Types of TimBots
 
 There are four different personalities of TimBots:
 ChickenBot : (Personality C) If a ChickenBot senses a TimBot in an adjoining district, it
@@ -95,7 +95,7 @@ adjoining district that has a TimBot in it, in the order NORTH, EAST, SOUTH,
 WEST, as long as long as it has three or more Jolts of energy. I.e., if its energy level
 drops to 2, it stops shooting. Otherwise, it behaves like a ChickenBot.
 
-#The Simulation
+# The Simulation
 The simulator reads in the simulation configuration and then instantiates and runs the
 the simulation, printing out the state of the simulation after each round. The simulation
 continues until the required number of rounds have transpired.
@@ -117,7 +117,7 @@ Y : the y coordinate of the TimBot in the grid, where 0 ≤ Y < R
 E : number of Jolts the TimBot initially has at the start of the simulation.
 All values are separated by white-space.
 
-#Semantics
+# Semantics
 Upon reading the configuration, the simulator instantiates a DohNat using arguments R,
 C, J, and G. The simulator creates a list of TimBot objects, one for each configuration,
 and adds the objects to the DohNat object. The simulator then loops for at most N times,
@@ -125,7 +125,7 @@ executing a round during each iteration. At the end of each round, the simulator
 the state of the similation and traverses the list of TimBot objects to count all functional
 TimBots. If the number of functional TimBots is one or less, the simulator stops the loop.
 
-#Output
+# Output
 After each round completes, the simulator prints out to the console the string Round r,
 where r is the current round, followed by the grid of DohNat. The format is:
 Round r
@@ -136,7 +136,7 @@ D0,2 D1,2 D2,2 . . . DC−1,2
 D0,R−1 D1,R−1 D2,R−1 . . . DC−1,R−1
 where Dx,y is the district at coordinates (x, y), and uses the format specified by the District
 class.
-##Sample Input
+## Sample Input
 ```
 5 5 5 10 100 4
 chicken 1 2 2 1
@@ -145,7 +145,7 @@ angry 3 2 3 1
 bully 4 3 2 1
 ```
 
-##Sample Output
+## Sample Output
 ```
 Round 0
 | 0|| 0|| 0|| 0|| 0|
